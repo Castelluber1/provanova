@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pronova Engenharia · Reformas em São Paulo, do projeto à entrega</title>
+<meta name="description" content="Reformas residenciais e comerciais em São Paulo com um só responsável: projeto, orçamento fechado, gestão e execução. Engenheiro civil Caio Fernandes, CREA 5071243724.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#15120F">
+<link rel="icon" href="../img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap"></noscript>
+<link rel="preload" as="image" href="../img/foto-01-1600.webp" imagesrcset="../img/foto-01-900.webp 900w, ../img/foto-01-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
+<style>
+  :root {
+    --noite: #15120F; --carvao: #1E1A16; --linha: rgba(232, 222, 206, .14);
+    --areia: #C4A982; --areia-clara: #E2CFAE; --creme: #F1EBE2; --texto: #E8DECE; --suave: #A89C8B;
+    --gutter: clamp(16px, 4vw, 56px);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--noite); color: var(--texto); font-family: Montserrat, system-ui, sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; }
+  .rot { font-size: .72rem; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: var(--areia); }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 var(--gutter); }
+  .btn { display: inline-flex; align-items: center; gap: .7rem; padding: 1rem 1.7rem; font: 500 .74rem Montserrat, sans-serif; letter-spacing: .24em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--areia); color: var(--noite); background: var(--areia); transition: background .3s, color .3s; }
+  .btn:hover { background: transparent; color: var(--areia); }
+  .btn.vazado { background: transparent; color: var(--texto); border-color: var(--linha); }
+  .btn.vazado:hover { border-color: var(--areia); color: var(--areia); }
+  .btn svg { width: 16px; height: 16px; }
+
+  /* nav */
+  nav { position: fixed; inset: 0 0 auto 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem var(--gutter); transition: background .4s, padding .4s; }
+  nav.cheio { background: rgba(21, 18, 15, .88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: .8rem var(--gutter); border-bottom: 1px solid var(--linha); }
+  nav img { height: 34px; width: auto; }
+  nav ul { list-style: none; display: flex; gap: 2.2rem; align-items: center; }
+  nav ul a { text-decoration: none; font-size: .7rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--suave); transition: color .3s; }
+  nav ul a:hover { color: var(--texto); }
+  nav .btn { padding: .7rem 1.1rem; }
+  @media (max-width: 860px) { nav ul li:not(.manter) { display: none; } }
+
+  /* 1 · abertura: planta → obra → entrega */
+  #abertura { height: 340vh; position: relative; }
+  .palco { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: grid; place-items: center; }
+  .planta { position: absolute; inset: 0; display: grid; place-items: center; }
+  .planta svg { width: min(86vw, 1100px); height: auto; }
+  .planta path, .planta line, .planta rect, .planta circle { fill: none; stroke: var(--areia); stroke-width: 1.4; stroke-dasharray: 1; stroke-dashoffset: var(--d, 1); vector-effect: non-scaling-stroke; }
+  .planta .fina { stroke-width: .7; opacity: .55; }
+  .planta text { fill: var(--areia); font: 500 11px Montserrat, sans-serif; letter-spacing: .2em; opacity: var(--t, 0); }
+  .obra { position: absolute; inset: 0; overflow: hidden; transform: scale(.0001); will-change: transform; }
+  .obra .kb { width: 100%; height: 100%; will-change: transform; }
+  .obra img { width: 100%; height: 100%; object-fit: cover; animation: zoomLento 24s ease-in-out infinite alternate; will-change: transform; }
+  @keyframes zoomLento { from { transform: scale(1); } to { transform: scale(1.09); } }
+  .obra::after { content: ''; position: absolute; inset: 0; background: rgba(21,18,15,.42); }
+  .manchete { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 12vh; z-index: 3; }
+  .manchete h1 { font-weight: 200; font-size: clamp(2.8rem, 9vw, 9.5rem); line-height: .95; letter-spacing: -.035em; color: var(--creme); }
+  .manchete h1 span { display: block; overflow: hidden; }
+  .manchete h1 span i { display: block; font-style: normal; transform: translateY(var(--h, 105%)); }
+  .manchete h1 span:nth-child(2) i { transform: translateY(var(--h2, 105%)); color: var(--areia-clara); }
+  .manchete .sub { margin-top: 1.6rem; max-width: 34rem; font-size: 1.02rem; color: var(--texto); opacity: var(--s, 0); }
+  .manchete .acoes { margin-top: 1.8rem; display: flex; gap: .8rem; flex-wrap: wrap; opacity: var(--s, 0); }
+  .etapa { position: absolute; top: 14vh; left: var(--gutter); z-index: 4; display: flex; align-items: center; gap: 1rem; }
+  .etapa b { font-weight: 200; font-size: 3.2rem; line-height: 1; color: var(--areia); min-width: 2.2ch; }
+  .etapa span { font-size: .72rem; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; }
+  .intro { position: absolute; z-index: 4; text-align: center; opacity: var(--io, 1); }
+  .intro p { font-size: .72rem; letter-spacing: .4em; text-transform: uppercase; color: var(--suave); margin-top: 1rem; }
+  .intro .dica { margin-top: 2.6rem; display: inline-flex; flex-direction: column; align-items: center; gap: .6rem; font-size: .66rem; letter-spacing: .3em; text-transform: uppercase; color: var(--areia); }
+  .intro .dica i { width: 1px; height: 46px; background: var(--areia); animation: desce 1.8s ease-in-out infinite; }
+  @keyframes desce { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+  .progresso { position: absolute; right: var(--gutter); top: 50%; transform: translateY(-50%); z-index: 4; width: 1px; height: 28vh; background: var(--linha); }
+  .progresso i { position: absolute; inset: 0 0 auto 0; height: calc(var(--p, 0) * 100%); background: var(--areia); }
+
+  /* 2 · manifesto */
+  #manifesto { padding: 22vh 0 18vh; }
+  #manifesto p.grande { font-weight: 200; font-size: clamp(2rem, 5.2vw, 5rem); line-height: 1.12; letter-spacing: -.02em; max-width: 18ch; }
+  #manifesto p.grande span { opacity: .14; transition: opacity .25s; }
+  #manifesto p.grande span.on { opacity: 1; }
+  #manifesto p.grande em { font-style: normal; color: var(--areia-clara); }
+  .man-grade { display: grid; grid-template-columns: 1.15fr 1fr; gap: 5vw; align-items: center; }
+  .man-grade p.grande { font-size: clamp(2rem, 3.7vw, 3.8rem) !important; }
+  .man-foto { position: relative; aspect-ratio: 4 / 5; overflow: hidden; }
+  figure.man-foto { opacity: 1; transform: none; }
+  .man-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; clip-path: inset(0 50% 0 50%); transform: scale(1.12); transition: clip-path .85s cubic-bezier(.3,.7,.2,1), transform 1.4s cubic-bezier(.2,.7,.2,1); }
+  .man-foto.on.pronta img { clip-path: inset(0 0 0 0); transform: scale(1); }
+  .man-foto figcaption { position: absolute; left: 1rem; bottom: 1rem; font-size: .66rem; letter-spacing: .3em; text-transform: uppercase; color: var(--creme); opacity: 0; transition: opacity .6s ease .6s; }
+  .man-foto.on.pronta figcaption { opacity: 1; }
+  @media (max-width: 860px) { .man-grade { grid-template-columns: 1fr; gap: 3rem; } .man-foto { aspect-ratio: 4 / 3; } }
+  @media (prefers-reduced-motion: reduce) { .man-foto img { clip-path: none; transform: none; transition: none; } .man-foto figcaption { opacity: 1; } }
+  .numeros { margin-top: 12vh; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--linha); }
+  .numeros div { padding: 2rem 2rem 0 0; }
+  .numeros b { display: block; font-weight: 200; font-size: clamp(2.4rem, 4.6vw, 4.4rem); line-height: 1; color: var(--areia-clara); letter-spacing: -.03em; }
+  .numeros span { display: block; margin-top: .8rem; font-size: .9rem; color: var(--suave); max-width: 22ch; }
+  @media (max-width: 760px) { .numeros { grid-template-columns: 1fr; } .numeros div { padding: 1.6rem 0 1.4rem; border-bottom: 1px solid var(--linha); } }
+
+  /* 3 · obras, trilho horizontal com cortina */
+  #obras { position: relative; padding: 16vh 0 12vh; }
+  #obras .palco { display: block; position: relative; height: auto; overflow: visible; justify-items: normal; place-items: normal; }
+  .obras-topo { position: relative; padding: 0 var(--gutter); margin-bottom: 7vh; display: flex; justify-content: space-between; align-items: end; gap: 2rem; z-index: 2; }
+  .obras-topo h2 { font-weight: 200; font-size: clamp(2.2rem, 5vw, 4.8rem); letter-spacing: -.03em; line-height: 1; }
+  .contador { font-weight: 200; font-size: clamp(2rem, 4vw, 3.6rem); color: var(--areia); letter-spacing: -.02em; }
+  .contador small { font-size: .4em; color: var(--suave); }
+  .trilho { position: relative; height: min(60vh, 620px); display: flex; gap: 3vw; padding: 0 var(--gutter); overflow-x: auto; overflow-y: hidden; scrollbar-width: none; overscroll-behavior-x: contain; }
+  .trilho::-webkit-scrollbar { display: none; }
+  .quadro { position: relative; height: 100%; aspect-ratio: 3 / 2; overflow: hidden; flex: none; background: var(--carvao); }
+  .quadro.alto { aspect-ratio: 3 / 4; }
+  .quadro img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.15) translateX(var(--px, 0)); }
+  .quadro::before, .quadro::after { content: ''; position: absolute; top: 0; bottom: 0; width: 50.5%; background: var(--noite); z-index: 2; transition: none; }
+  .quadro::before { left: 0; transform: translateX(calc(var(--r, 0) * -100%)); }
+  .quadro::after { right: 0; transform: translateX(calc(var(--r, 0) * 100%)); }
+  .trilho { touch-action: pan-x pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
+  .trilho.arrastando { cursor: grabbing; }
+  .quadro img { -webkit-user-drag: none; pointer-events: none; }
+  .trilho.espia .quadro { animation: espia 1.7s cubic-bezier(.65,0,.25,1); }
+  @keyframes espia { 0%, 100% { transform: none; } 45% { transform: translateX(-10vw); } }
+  .obras-dir { display: flex; flex-direction: column; align-items: flex-end; gap: 1.2rem; }
+  .setas { display: flex; gap: .6rem; }
+  .setas button { all: unset; box-sizing: border-box; width: 52px; height: 52px; border: 1px solid var(--linha); border-radius: 50%; display: grid; place-items: center; cursor: pointer; color: var(--creme); transition: border-color .3s, background .3s, opacity .3s; }
+  .setas button:hover { border-color: var(--areia); background: rgba(196,169,130,.1); }
+  .setas button:focus-visible { outline: 1px solid var(--areia); outline-offset: 3px; }
+  .setas button:disabled { opacity: .28; cursor: default; background: none; border-color: var(--linha); }
+  .setas svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.4; }
+  .obras-dica { position: relative; margin: 3.4vh var(--gutter) 0; z-index: 3; display: flex; align-items: center; gap: .9rem; font-size: .66rem; letter-spacing: .3em; text-transform: uppercase; color: var(--areia); transition: opacity .6s; }
+  .obras-dica i { position: relative; width: 38px; height: 1px; background: var(--areia); animation: aponta 1.6s ease-in-out infinite; }
+  .obras-dica i::after { content: ''; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid var(--areia); border-right: 1px solid var(--areia); transform: rotate(45deg); }
+  @keyframes aponta { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
+  .obras-dica.fora { opacity: 0; }
+  @media (max-width: 760px) { .setas button { width: 44px; height: 44px; } .obras-dir { gap: .8rem; } }
+  @media (prefers-reduced-motion: reduce) { .trilho.espia .quadro, .obras-dica i { animation: none; } }
+  .quadro figcaption { position: absolute; left: 1rem; bottom: 1rem; z-index: 3; font-size: .66rem; letter-spacing: .3em; text-transform: uppercase; color: var(--creme); opacity: var(--r, 0); }
+  @media (max-width: 760px) { .trilho { height: 48vh; align-items: center; } .quadro { height: auto; width: min(86vw, 48vh); aspect-ratio: 1; } .quadro.alto { height: 100%; width: auto; aspect-ratio: 3 / 4; } .contador { white-space: nowrap; } .obras-topo { margin-bottom: 4vh; } }
+
+  /* 4 · processo: linha do tempo */
+  #processo { padding: 18vh 0 16vh; }
+  .proc-topo { margin-bottom: 10vh; }
+  .proc-topo h2 { font-weight: 200; font-size: clamp(2.2rem, 5vw, 4.8rem); letter-spacing: -.03em; line-height: 1; margin-top: 1rem; }
+  div.etapas { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 3vw; opacity: 1; transform: none; }
+  .etapas::before, .etapas::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--linha); }
+  .etapas::after { background: var(--areia); transform: scaleX(0); transform-origin: left; transition: transform 2.4s cubic-bezier(.7,0,.2,1); }
+  .etapas.on::after { transform: scaleX(1); }
+  .passo-c { position: relative; padding-top: 2.6rem; opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
+  .passo-c::before { content: ''; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--noite); border: 1px solid var(--areia); }
+  .etapas.on .passo-c { opacity: 1; transform: none; }
+  .etapas.on .passo-c:nth-child(2) { transition-delay: .45s; }
+  .etapas.on .passo-c:nth-child(3) { transition-delay: .9s; }
+  .etapas.on .passo-c:nth-child(4) { transition-delay: 1.35s; }
+  .passo-c b { display: block; font-weight: 200; font-size: clamp(4rem, 7vw, 6.6rem); line-height: .85; letter-spacing: -.05em; color: transparent; -webkit-text-stroke: 1px var(--areia); }
+  .passo-c h3 { font-weight: 300; font-size: clamp(1.25rem, 1.7vw, 1.6rem); color: var(--creme); margin: 1.8rem 0 .8rem; letter-spacing: -.01em; }
+  .passo-c p { font-size: .98rem; color: var(--texto); max-width: 26ch; }
+  @media (max-width: 860px) {
+    div.etapas { grid-template-columns: 1fr; gap: 0; padding-left: 2rem; }
+    .etapas::before, .etapas::after { right: auto; bottom: 0; width: 1px; height: auto; }
+    .etapas::after { transform: scaleY(0); transform-origin: top; }
+    .etapas.on::after { transform: scaleY(1); }
+    .passo-c { padding: 0 0 3rem; }
+    .passo-c::before { top: .6rem; left: calc(-2rem - 4px); }
+    .passo-c b { font-size: 4rem; }
+    .passo-c h3 { margin-top: 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .passo-c { opacity: 1; transform: none; transition: none; } .etapas::after { transform: none; transition: none; } }
+
+  /* 5 · Caio */
+  #caio { background: var(--creme); color: var(--carvao); padding: 16vh 0; overflow: hidden; }
+  .caio { display: grid; grid-template-columns: 5fr 6fr; gap: 6vw; align-items: center; }
+  .retrato { position: relative; aspect-ratio: 760 / 1155; max-height: 82vh; justify-self: center; width: 100%; max-width: 520px; }
+  .retrato video, .retrato img { width: 100%; height: 100%; object-fit: cover; }
+  .retrato .crea { position: absolute; left: -1px; bottom: 1.4rem; background: var(--carvao); color: var(--creme); padding: .7rem 1rem; font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; }
+  .retrato .crea b { display: block; color: var(--areia); font-weight: 500; }
+  .caio .rot { color: #8A6F49; }
+  .caio h2 { font-weight: 200; font-size: clamp(3rem, 7vw, 6.8rem); line-height: .95; letter-spacing: -.04em; margin: 1.2rem 0 2rem; color: var(--carvao); }
+  .caio p { font-size: 1.05rem; color: #4A4238; max-width: 34rem; margin-bottom: 1rem; }
+  .caio .pilares { list-style: none; margin: 2rem 0 2.4rem; border-top: 1px solid rgba(30,26,22,.15); }
+  .caio .pilares li { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(30,26,22,.15); font-size: .95rem; }
+  .caio .pilares li span { color: #8A6F49; font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 500; }
+  .caio .btn { color: var(--creme); background: var(--carvao); border-color: var(--carvao); }
+  .caio .btn:hover { background: transparent; color: var(--carvao); }
+  @media (max-width: 860px) { .caio { grid-template-columns: 1fr; } .retrato { max-width: 360px; } }
+
+  /* 6 · contato */
+  #contato { padding: 20vh 0 12vh; text-align: center; position: relative; overflow: hidden; }
+  #contato h2 { font-weight: 200; font-size: clamp(2.8rem, 9vw, 8.6rem); line-height: .95; letter-spacing: -.04em; color: var(--creme); }
+  #contato h2 em { font-style: normal; color: var(--areia-clara); }
+  #contato p { margin: 2rem auto 2.6rem; max-width: 32rem; color: var(--suave); }
+  #contato .acoes { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+  footer { border-top: 1px solid var(--linha); padding: 2.4rem 0 3rem; font-size: .74rem; color: var(--suave); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+  footer img { height: 26px; width: auto; opacity: .8; }
+
+  .rev { opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1); }
+  .rev.on { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .rev { opacity: 1; transform: none; transition: none; }
+    .intro .dica i, .obra img { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#abertura" aria-label="Pronova Engenharia, início"><img src="../img/logo.png" width="480" height="159" alt="Pronova Engenharia"></a>
+  <ul>
+    <li><a href="#obras">Obras</a></li>
+    <li><a href="#processo">Como funciona</a></li>
+    <li><a href="#caio">Quem somos</a></li>
+    <li class="manter"><a class="btn" href="https://wa.me/5513981697310?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20uma%20obra" target="_blank" rel="noopener">WhatsApp</a></li>
+  </ul>
+</nav>
+
+<main>
+<!-- 1 · Abertura: a planta se desenha, vira obra, vira entrega -->
+<section id="abertura" aria-label="Do projeto à entrega">
+  <div class="palco" id="palco">
+    <div class="planta" aria-hidden="true">
+      <svg viewBox="0 0 1100 620">
+        <!-- paredes externas -->
+        <path pathLength="1" d="M60 60 H1040 V560 H60 Z"/>
+        <!-- divisões -->
+        <path pathLength="1" d="M420 60 V330 M420 400 V560"/>
+        <path pathLength="1" d="M420 330 H700 M780 330 H1040"/>
+        <path pathLength="1" d="M700 330 V560"/>
+        <path pathLength="1" d="M60 300 H300 M360 300 H420"/>
+        <!-- portas -->
+        <path pathLength="1" class="fina" d="M300 300 A60 60 0 0 1 360 240"/>
+        <path pathLength="1" class="fina" d="M700 330 A80 80 0 0 0 780 410"/>
+        <path pathLength="1" class="fina" d="M420 330 A70 70 0 0 1 490 400"/>
+        <!-- janelas -->
+        <path pathLength="1" d="M520 60 H900 M520 52 H900"/>
+        <path pathLength="1" d="M60 120 V240 M52 120 V240"/>
+        <path pathLength="1" d="M1040 400 V520 M1048 400 V520"/>
+        <!-- móveis -->
+        <rect pathLength="1" class="fina" x="520" y="140" width="300" height="110" rx="20"/>
+        <circle pathLength="1" class="fina" cx="230" cy="430" r="70"/>
+        <rect pathLength="1" class="fina" x="760" y="430" width="230" height="90" rx="6"/>
+        <rect pathLength="1" class="fina" x="110" y="110" width="200" height="140" rx="4"/>
+        <!-- cotas -->
+        <path pathLength="1" class="fina" d="M60 595 H1040 M60 585 V605 M1040 585 V605"/>
+        <path pathLength="1" class="fina" d="M20 60 V560 M10 60 H30 M10 560 H30"/>
+        <text x="520" y="612" text-anchor="middle">9,80 m</text>
+        <text x="200" y="200" text-anchor="middle">SUÍTE</text>
+        <text x="670" y="290" text-anchor="middle">ESTAR · JANTAR</text>
+        <text x="230" y="520" text-anchor="middle">BANHO</text>
+        <text x="870" y="400" text-anchor="middle">COZINHA</text>
+      </svg>
+    </div>
+
+    <div class="obra" id="obra">
+      <div class="kb"><img src="../img/foto-01-1600.webp" srcset="../img/foto-01-900.webp 900w, ../img/foto-01-1600.webp 1600w" sizes="100vw" width="1600" height="1132" alt="" fetchpriority="high"></div>
+    </div>
+
+    <div class="intro" id="intro">
+      <img src="../img/logo.png" width="300" height="99" alt="" style="width:min(300px,62vw);height:auto;margin:0 auto">
+      <p>Reformas em São Paulo</p>
+      <span class="dica">Role para construir<i></i></span>
+    </div>
+
+    <div class="etapa" id="etapa" aria-hidden="true"><b id="etapaNum">01</b><span id="etapaTxt">O projeto</span></div>
+
+    <div class="manchete" id="manchete">
+      <h1><span><i>Sua obra completa,</i></span><span><i>com qualidade e no prazo.</i></span></h1>
+      <p class="sub">Projeto, orçamento, gestão e execução com um só responsável, do primeiro traço à entrega das chaves.</p>
+      <div class="acoes">
+        <a class="btn" href="https://wa.me/5513981697310?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20uma%20obra" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn vazado" href="#obras">Ver obras</a>
+      </div>
+    </div>
+    <div class="progresso" aria-hidden="true"><i></i></div>
+  </div>
+</section>
+
+<!-- 2 · Manifesto -->
+<section id="manifesto">
+  <div class="wrap">
+    <div class="man-grade">
+      <div>
+        <p class="rot rev">Por que a Pronova</p>
+        <p class="grande" id="frase" style="margin-top:2.4rem">Um engenheiro do início ao fim. <em>Orçamento fechado antes do primeiro tijolo.</em> Cronograma, valores e fotos da obra na palma da sua mão.</p>
+      </div>
+      <figure class="man-foto rev"><img src="../img/foto-07-900.webp" srcset="../img/foto-07-900.webp 900w, ../img/foto-07-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 42vw" width="1600" height="1066" alt="Caio Fernandes, de capacete, lendo a planta dentro de uma obra" decoding="async"><figcaption>Caio Fernandes · em obra</figcaption></figure>
+    </div>
+    <div class="numeros">
+      <div class="rev"><b>10+</b><span>anos fazendo obras e reformas em São Paulo</span></div>
+      <div class="rev"><b>1</b><span>responsável do início ao fim, sem intermediários</span></div>
+      <div class="rev"><b>4</b><span>etapas claras: visita, projeto, orçamento e execução</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · Obras -->
+<section id="obras" aria-label="Principais obras">
+  <div class="palco" id="obrasPalco">
+    <div class="obras-topo">
+      <div><p class="rot">Principais obras</p><h2 style="margin-top:1rem">Obras que saíram<br>do papel.</h2></div>
+      <div class="obras-dir">
+        <div class="contador"><span id="cont">01</span> <small>/ 06</small></div>
+        <div class="setas"><button type="button" id="obrasAnt" aria-label="Obra anterior"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/></svg></button><button type="button" id="obrasProx" aria-label="Próxima obra"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button></div>
+      </div>
+    </div>
+    <div class="trilho" id="trilho">
+      <figure class="quadro"><img src="../img/foto-01-900.webp" srcset="../img/foto-01-900.webp 900w, ../img/foto-01-1600.webp 1600w" sizes="(max-width: 760px) 86vw, 78vh" width="1600" height="1132" alt="Sala integrada com jantar e cozinha, forro de madeira e iluminação embutida" loading="lazy"><figcaption>Estar integrado</figcaption></figure>
+      <figure class="quadro"><img src="../img/foto-02-900.webp" srcset="../img/foto-02-900.webp 900w, ../img/foto-02-1600.webp 1600w" sizes="(max-width: 760px) 86vw, 78vh" width="1600" height="1150" alt="Hall revestido em madeira com porta de correr e estante iluminada" loading="lazy"><figcaption>Hall em madeira</figcaption></figure>
+      <figure class="quadro"><img src="../img/foto-03-900.webp" srcset="../img/foto-03-900.webp 900w, ../img/foto-03-1600.webp 1600w" sizes="(max-width: 760px) 86vw, 78vh" width="1600" height="1066" alt="Living com poltrona caramelo, pilar revestido e vista da cidade" loading="lazy"><figcaption>Living</figcaption></figure>
+      <figure class="quadro"><img src="../img/foto-04-900.webp" srcset="../img/foto-04-900.webp 900w, ../img/foto-04-1600.webp 1280w" sizes="(max-width: 760px) 86vw, 78vh" width="1280" height="960" alt="Recepção de clínica com balcão curvo e iluminação no forro" loading="lazy"><figcaption>Clínica · recepção</figcaption></figure>
+      <figure class="quadro alto"><img src="../img/foto-05-900.webp" srcset="../img/foto-05-900.webp 900w, ../img/foto-05-1600.webp 959w" sizes="(max-width: 760px) 36vh, 39vh" width="959" height="1280" alt="Consultório com mesa branca e estante iluminada" loading="lazy"><figcaption>Consultório</figcaption></figure>
+      <figure class="quadro"><img src="../img/foto-06-900.webp" srcset="../img/foto-06-900.webp 900w, ../img/foto-06-1600.webp 1600w" sizes="(max-width: 760px) 86vw, 78vh" width="1600" height="898" alt="Área externa com piso cerâmico, jardim e sofás" loading="lazy"><figcaption>Área externa</figcaption></figure>
+    </div>
+    <p class="obras-dica" id="obrasDica" aria-hidden="true">Arraste para ver mais<i></i></p>
+  </div>
+</section>
+
+<!-- 4 · Processo -->
+<section id="processo" aria-label="Como funciona">
+  <div class="wrap">
+    <div class="proc-topo"><p class="rot rev">Como funciona · do projeto à entrega</p><h2 class="rev">Quatro etapas,<br>um só responsável.</h2></div>
+    <div class="etapas rev">
+      <div class="passo-c"><b>01</b><h3>Visita</h3><p>Entendemos o espaço, o que você quer e quanto pretende investir.</p></div>
+      <div class="passo-c"><b>02</b><h3>Projeto</h3><p>Definimos com você a solução, os materiais e os acabamentos.</p></div>
+      <div class="passo-c"><b>03</b><h3>Orçamento e cronograma</h3><p>Você recebe valores e datas por etapa antes de começar.</p></div>
+      <div class="passo-c"><b>04</b><h3>Execução e entrega</h3><p>Coordenamos a obra e entregamos o imóvel pronto para uso.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Caio Fernandes -->
+<section id="caio">
+  <div class="wrap caio">
+    <div class="retrato rev">
+      <video id="caioVideo" muted playsinline preload="none" poster="../img/caio.webp" data-src="../video/caio.mp4" aria-label="Caio Fernandes, engenheiro civil"></video>
+      <div class="crea">Engenheiro civil<b>CREA 5071243724</b></div>
+    </div>
+    <div>
+      <p class="rot rev">Quem está à frente</p>
+      <h2 class="rev">Caio<br>Fernandes</h2>
+      <p class="rev">Formado em Engenharia Civil e Gestão de Projetos pela Universidade Presbiteriana Mackenzie. Há mais de 10 anos faço obras e reformas residenciais e comerciais em São Paulo, e atuo também como gerente de incorporação.</p>
+      <p class="rev">Criei a Pronova para que você tenha projeto, orçamento, gestão e execução com um só responsável.</p>
+      <ul class="pilares rev">
+        <li>Um só responsável <span>sem intermediários</span></li>
+        <li>Orçamento fechado <span>antes de começar</span></li>
+        <li>Obra na palma da mão <span>painel online</span></li>
+      </ul>
+      <a class="btn rev" href="https://wa.me/5513981697310?text=Ol%C3%A1%20Caio%2C%20quero%20falar%20sobre%20uma%20obra" target="_blank" rel="noopener">Conversar com o Caio</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Contato -->
+<section id="contato">
+  <div class="wrap">
+    <p class="rot rev">Seu próximo passo</p>
+    <h2 class="rev" style="margin-top:1.6rem">Vamos tirar a sua<br><em>obra do papel?</em></h2>
+    <p class="rev">Conte o que você quer fazer e agendamos a visita. O orçamento é sem compromisso.</p>
+    <div class="acoes rev">
+      <a class="btn" href="https://wa.me/5513981697310?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20visita" target="_blank" rel="noopener">(13) 98169-7310 · WhatsApp</a>
+      <a class="btn vazado" href="https://www.instagram.com/pronova.engenharia/" target="_blank" rel="noopener">@pronova.engenharia</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="../img/logo.png" width="480" height="159" alt="Pronova Engenharia">
+    <span>Pronova Engenharia · Responsável técnico: Caio Gueiros Lopes Fernandes, engenheiro civil, CREA-SP 5071243724 · São Paulo/SP</span>
+    <span>Conceito de site. Movimento das fotos gerado por IA a partir de fotos reais das obras.</span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const REDUZ = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const nav = document.getElementById('nav');
+
+  // geometria medida uma vez (e no resize); o scroll só faz conta, sem ler o layout
+  const geo = {};
+  const topo = el => el.getBoundingClientRect().top + scrollY;
+  const faixa = el => ({ top: topo(el), h: el.offsetHeight });
+  const prog = g => clamp((scrollY - g.top) / (g.h - innerHeight));
+
+  // 1 · abertura
+  const ab = document.getElementById('abertura'), palco = document.getElementById('palco');
+  const planta = palco.querySelector('.planta'), obra = document.getElementById('obra'), intro = document.getElementById('intro');
+  const kb = obra.querySelector('.kb'), manchete = document.getElementById('manchete'), progresso = palco.querySelector('.progresso');
+  const linhas = [...planta.querySelectorAll('path,rect,circle')];
+  const etapaNum = document.getElementById('etapaNum'), etapaTxt = document.getElementById('etapaTxt');
+  const ETAPAS = [['01', 'O projeto'], ['02', 'A obra'], ['03', 'A entrega']];
+  let etapaAtual = -1, abUlt = -1;
+  function abertura(p) {
+    if (p === abUlt) return; abUlt = p;
+    const d = clamp(p / .34);                         // planta se desenha
+    if (d < 1 || p < .4) {
+      linhas.forEach((l, i) => l.style.setProperty('--d', 1 - clamp(d * 1.25 - i * .012)));
+      planta.style.setProperty('--t', clamp((d - .6) / .4));
+    }
+    intro.style.setProperty('--io', 1 - clamp(p / .08));
+    const r = clamp((p - .3) / .36);                  // a obra se abre (transform, sem repintar)
+    const e = Math.max(.02, 1 - Math.pow(1 - r, 3));
+    obra.style.visibility = r > 0 ? '' : 'hidden';
+    obra.style.transform = `scale(${e})`;
+    kb.style.transform = `scale(${(1.25 - .25 * e) / e})`;
+    planta.style.opacity = 1 - clamp((r - .5) / .5);
+    const h = clamp((p - .66) / .2), h2 = clamp((p - .72) / .2);   // a manchete entra
+    manchete.style.setProperty('--h', (1 - h) * 105 + '%');
+    manchete.style.setProperty('--h2', (1 - h2) * 105 + '%');
+    manchete.style.setProperty('--s', clamp((p - .82) / .14));
+    progresso.style.setProperty('--p', p);
+    const k = p < .32 ? 0 : p < .66 ? 1 : 2;
+    if (k !== etapaAtual) { etapaAtual = k; etapaNum.textContent = ETAPAS[k][0]; etapaTxt.textContent = ETAPAS[k][1]; }
+  }
+
+  // 2 · manifesto: palavra por palavra
+  const frase = document.getElementById('frase');
+  (function quebra(node) {
+    [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(w => { if (!w.trim()) { frag.append(w); return; } const s = document.createElement('span'); s.textContent = w; frag.append(s); });
+        n.replaceWith(frag);
+      } else quebra(n);
+    });
+  })(frase);
+  const palavras = [...frase.querySelectorAll('span')];
+  let nUlt = -1;
+  function manifesto() {
+    const top = geo.fr.top - scrollY;
+    const p = clamp((innerHeight * .85 - top) / (geo.fr.h + innerHeight * .35));
+    const n = Math.round(p * palavras.length);
+    if (n === nUlt) return; nUlt = n;
+    palavras.forEach((w, i) => w.classList.toggle('on', i < n));
+  }
+
+  // 3 · obras: faixa da página que corre pro lado (roda do mouse em cima das fotos, setas, teclado, arrastar, dedo)
+  const obras = document.getElementById('obras'), trilho = document.getElementById('trilho'), cont = document.getElementById('cont');
+  const quadros = [...trilho.children];
+  const setaAnt = document.getElementById('obrasAnt'), setaProx = document.getElementById('obrasProx'), dica = document.getElementById('obrasDica');
+  let contUlt = -1, xUlt = -1, jaUsou = false, alvoX = 0, animando = false, arr = null;
+  const maxX = () => trilho.scrollWidth - trilho.clientWidth;
+  const xDo = i => geo.quad[i].l - geo.quad[0].l;
+  const usou = () => { jaUsou = true; dica.classList.add('fora'); trilho.classList.remove('espia'); };
+  function obrasAtualiza() {
+    const x = trilho.scrollLeft; if (x === xUlt) return; xUlt = x;
+    const vw = trilho.clientWidth, m = maxX(); let atual = 0;
+    quadros.forEach((q, i) => {
+      const left = geo.quad[i].l - x, w = geo.quad[i].w;
+      const rev = clamp((vw - left) / (vw * .55));
+      q.style.setProperty('--r', 1 - Math.pow(1 - rev, 3));
+      q.style.setProperty('--px', ((left + w / 2 - vw / 2) / vw * -6) + '%');
+      if (left < vw * .5) atual = i;
+    });
+    if (x >= m - 2) atual = quadros.length - 1;
+    if (atual !== contUlt) { contUlt = atual; cont.textContent = String(atual + 1).padStart(2, '0'); }
+    setaAnt.disabled = x <= 2; setaProx.disabled = x >= m - 2;
+    if (x > 40) dica.classList.add('fora');
+  }
+  let pendOb = false;
+  trilho.addEventListener('scroll', () => {
+    if (!animando && !arr) alvoX = trilho.scrollLeft;
+    if (!pendOb) { pendOb = true; requestAnimationFrame(() => { pendOb = false; obrasAtualiza(); }); }
+  }, { passive: true });
+  // anda até alvoX com suavidade (igual em 60 Hz ou 144 Hz)
+  let tAntOb = 0;
+  function anima(t) {
+    const dt = tAntOb ? Math.min(64, t - tAntOb) : 16; tAntOb = t;
+    const x = trilho.scrollLeft, d = alvoX - x;
+    if (Math.abs(d) < 1 || REDUZ) { trilho.scrollLeft = alvoX; animando = false; tAntOb = 0; return; }
+    let passo = d * (1 - Math.exp(-dt / 90));
+    if (Math.abs(passo) < 1) passo = Math.sign(d);
+    trilho.scrollLeft = x + passo;
+    requestAnimationFrame(anima);
+  }
+  function irX(x) { alvoX = clamp(x, 0, maxX()); if (!animando) { animando = true; requestAnimationFrame(anima); } }
+  // roda do mouse em cima das fotos: passa as fotos; na primeira/última foto, devolve o scroll pra página
+  trilho.addEventListener('wheel', e => {
+    if (e.ctrlKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    const d = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? innerHeight : 1);
+    const m = maxX(), base = animando ? alvoX : trilho.scrollLeft;
+    if ((d > 0 && base >= m - 1) || (d < 0 && base <= 1)) return;
+    e.preventDefault(); usou(); irX(base + d);
+  }, { passive: false });
+  // anterior/próxima pela posição real (as últimas fotos podem cair no mesmo ponto final)
+  const anterior = () => { let k = -1; quadros.forEach((q, i) => { if (Math.min(xDo(i), maxX()) < alvoX - 4) k = i; }); return k; };
+  const proxima = () => quadros.findIndex((q, i) => Math.min(xDo(i), maxX()) > alvoX + 4);
+  function irPara(i) { if (i < 0) return false; usou(); irX(xDo(i)); return true; }
+  setaAnt.addEventListener('click', () => irPara(anterior()));
+  setaProx.addEventListener('click', () => irPara(proxima()));
+  addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    const r = trilho.getBoundingClientRect();
+    if (r.bottom < innerHeight * .3 || r.top > innerHeight * .7) return;
+    if (irPara(e.key === 'ArrowRight' ? proxima() : anterior())) e.preventDefault();
+  });
+  // arrastar com o mouse (no celular o dedo já desliza nativo)
+  trilho.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse' || e.button !== 0) return; arr = { x: e.clientX, x0: trilho.scrollLeft, mov: false }; });
+  addEventListener('pointermove', e => {
+    if (!arr) return;
+    const dx = e.clientX - arr.x;
+    if (!arr.mov) { if (Math.abs(dx) < 6) return; arr.mov = true; trilho.classList.add('arrastando'); usou(); }
+    animando = false; alvoX = clamp(arr.x0 - dx, 0, maxX()); trilho.scrollLeft = alvoX;
+  });
+  const soltar = () => { if (arr) { arr = null; trilho.classList.remove('arrastando'); } };
+  addEventListener('pointerup', soltar); addEventListener('pointercancel', soltar);
+  // dica: na primeira vez que a galeria aparece, as fotos dão uma espiada pro lado
+  const eio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; eio.disconnect();
+    if (!REDUZ) setTimeout(() => { if (!jaUsou && trilho.scrollLeft < 2) trilho.classList.add('espia'); }, 400);
+  }), { threshold: .6 });
+  eio.observe(trilho);
+  quadros[0].addEventListener('animationend', () => trilho.classList.remove('espia'));
+
+  function medir() {
+    geo.ab = faixa(ab); geo.ob = faixa(obras); geo.fr = faixa(frase);
+    geo.quad = quadros.map(q => ({ l: q.offsetLeft, w: q.offsetWidth }));
+    abUlt = nUlt = xUlt = -1;
+    obrasAtualiza();
+  }
+
+  // progresso suavizado pelo tempo (igual em 60 Hz ou 144 Hz)
+  let pend = false, sAb = 0, tAnt = 0;
+  function tick(t) {
+    pend = false;
+    const y = scrollY;
+    nav.classList.toggle('cheio', y > innerHeight * 2.6);
+    if (REDUZ) return;
+    const dt = tAnt ? Math.min(64, t - tAnt) : 16; tAnt = t;
+    const f = 1 - Math.exp(-dt / 70);
+    const tAb = prog(geo.ab);
+    sAb += (tAb - sAb) * f;
+    if (Math.abs(tAb - sAb) < .0004) sAb = tAb;
+    const vh = innerHeight, perto = g => y > g.top - vh && y < g.top + g.h;
+    if (perto(geo.ab) || sAb !== abUlt) abertura(sAb);
+    if (perto(geo.fr)) manifesto();
+    if (sAb !== tAb) { pend = true; requestAnimationFrame(tick); } else tAnt = 0;
+  }
+  const pedir = () => { if (!pend) { pend = true; requestAnimationFrame(tick); } };
+  addEventListener('scroll', pedir, { passive: true });
+  addEventListener('resize', () => { medir(); pedir(); });
+  addEventListener('load', () => { medir(); pedir(); });
+  if (document.fonts) document.fonts.ready.then(() => { medir(); pedir(); });
+  medir();
+  if (REDUZ) { abertura(1); palavras.forEach(w => w.classList.add('on')); quadros.forEach(q => q.style.setProperty('--r', 1)); }
+  else { sAb = prog(geo.ab); abertura(sAb); manifesto(); }
+
+  // foto do manifesto: a cortina só abre com a imagem pronta (sem abrir em cima de um quadro vazio)
+  const manFoto = document.querySelector('.man-foto'), manImg = manFoto.querySelector('img');
+  const pronta = () => manFoto.classList.add('pronta');
+  if (manImg.complete && manImg.naturalWidth) pronta(); else { manImg.addEventListener('load', pronta); manImg.addEventListener('error', pronta); }
+
+  // revelações
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: .15 });
+  document.querySelectorAll('.rev').forEach(el => io.observe(el));
+
+  // retrato do Caio: carrega e toca quando aparece, repete com pausa
+  const cv = document.getElementById('caioVideo');
+  const cio = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting && !REDUZ) {
+      if (!cv.src) { cv.src = cv.dataset.src; cv.addEventListener('ended', () => setTimeout(() => { cv.currentTime = 0; cv.play().catch(() => {}); }, 2500)); }
+      cv.play().catch(() => {});
+    } else if (!e.isIntersecting && !cv.paused) cv.pause();
+  }), { threshold: .4 });
+  cio.observe(cv);
+})();
+</script>
+</body>
+</html>
