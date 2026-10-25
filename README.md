@@ -32,5 +32,8 @@
 - Manifesto ("Por que a Pronova") now has the photo of Caio Fernandes reading the plan (foto-07).
 - "Como funciona": Caio did not like the 420vh sticky scroll ("scrolls and does nothing"). Two options, each one a copy of v1 with only that section changed: `site/opcao-a/` (4-step timeline, one screen) and `site/opcao-b/` (photo + list, hover/tap switches the photo, auto-advances). Live at /conceito/pronova/opcao-a/ and /opcao-b/ for feedback. The root v1 still has the old section until one is picked.
 
+## 2026-10-25
+- 4 more client photos (WhatsApp, `assets/whatsapp-2026-10-25/`) added at the end of the gallery as `foto-08..11` in v1, opcao-a and opcao-b; the gallery now has 10 photos.
+
 ## Temporary vercel.app links (2026-10-22, delete when no longer needed)
 - https://pronova-conceito.vercel.app/ (v1) and /v2/. Vercel project `pronova-conceito`, deployed from a copy with only v1+v2 (`.tmp/pronova-deploy`, `trailingSlash` + noindex in vercel.json).
